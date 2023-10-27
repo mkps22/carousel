@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+            outline: 0px;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: rgb(49, 48, 48);
+        }
+
+        main {
+            width: 90%;
+            height: 75vh;
+           
+            box-shadow: 0px 0px 29px 20px rgba(255, 254, 254, 0.695);
+            margin: auto;
+            margin-top: 100px;
+            position: relative;
+            overflow: hidden;
+            border: 10px groove rgb(244, 213, 166);
+        }
+
+        .slide {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            transition: 1s ease-in-out;
+        }
+
+        .nav {
+            width: 100%;
+            height: 10vh;
+            display: flex;
+            justify-content: space-between;
+            
+        }
+
+        button {
+            width: 8%;
+           position: relative;
+           top: -380%;
+          text-align: center;
+          box-shadow: 0px 0px 6px 5px rgb(189, 187, 190);
+          border: 5px groove gainsboro;
+          font-size: 19px;
+          cursor: pointer;
+          background-color: rgba(245, 222, 179, 0.541);
+          border-radius: 1ic;
+          
+        }
+        button:hover{
+            background-color: rgba(216, 68, 216, 0.486);
+        }
+        h1{
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+       
+      <img src="1File .jpeg" class="slide">
+        <img src="3File .webp" class="slide">
+        <img src="4File .jpeg" class="slide">
+        <img src="5File .jpeg" class="slide">
+        <img src="6File .webp" class="slide">
+        <img src="7File .jpeg" class="slide">
+        <img src="8File .jpeg" class="slide">
+        <img src="9File .webp" class="slide">
+        <img src="10.jpeg" class="slide">
+    </main>
+    <div class="nav">
+        <button onclick="bak()">BACK</button>
+        <button onclick="nxt()">NEXT</button>
+    </div>
+   
+    
+
+
+    <script>
+        let slide = document.querySelectorAll(".slide")
+        let c = 0
+        slide.forEach(
+            (slide, index) => {
+                slide.style.left = `${index * 100}%`
+
+            }
+        )
+
+        let slideimg = () => {
+
+            slide.forEach(
+                (slide) => {
+                    slide.style.transform = `translateX(-${c * 100}%)`
+                }
+            )
+        }
+        let nxt=()=>{
+            c++
+            if(c>8){
+                c=0
+            }
+            slideimg()
+        }
+        let bak=()=>{
+            c--
+            if(c<0){
+                c=8
+                
+            }
+            slideimg()
+        }
+
+    </script>
+
+</body>
+
+</html>
